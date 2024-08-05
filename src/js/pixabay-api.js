@@ -15,7 +15,7 @@ export async function getPicturesByQuery(query, page = 1, perPage = 15) {
 
   try {
     const response = await axios.get(`https://pixabay.com/api/?${params}`);
-    if (!response.status === 200) {
+    if (response.status !== 200) {
       throw new Error(response.status);
     }
     return response.data;
