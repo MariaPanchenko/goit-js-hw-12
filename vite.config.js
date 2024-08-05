@@ -2,7 +2,6 @@ import { defineConfig } from 'vite';
 import glob from 'glob';
 import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
-import { babel } from '@rollup/plugin-babel';
 
 export default defineConfig(({ command }) => {
   return {
@@ -26,13 +25,6 @@ export default defineConfig(({ command }) => {
       },
       outDir: '../dist',
     },
-    plugins: [
-      babel({
-        babelHelpers: 'bundled',
-        presets: ['@babel/preset-env'],
-      }),
-      injectHTML(),
-      FullReload(['./src/**/**.html']),
-    ],
+    plugins: [injectHTML(), FullReload(['./src/**/**.html'])],
   };
 });

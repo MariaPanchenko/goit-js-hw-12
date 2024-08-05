@@ -8,7 +8,7 @@ export async function getPicturesByQuery(query, page = 1, perPage = 15) {
     q: query,
     image_type: 'photo',
     orientation: 'horizontal',
-    safesearch: 'true',
+    safesearch: true,
     page: page,
     per_page: perPage,
   });
